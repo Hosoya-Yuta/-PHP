@@ -14,12 +14,12 @@ class CreateExperienceTable extends Migration
     public function up()
     {
         Schema::create('experience', function (Blueprint $table) {
-            $table->increments('id')->comment('投稿番号');
+            $table->increments('store_reviews_id')->comment('投稿番号');
             $table->string('difficulty')->comment('難易度');
             $table->string('time')->comment('所要時間');
             $table->string('review')->comment('楽しみ方');
             $table->integer('del_flg')->comment('削除フラグ')->default(0);
-            $table->integer('user_id')->comment('ユーザーID');
+            $table->integer('id')->comment('ユーザーID');
             $table->timestamps();
         });
     }
