@@ -29,7 +29,7 @@ class CreateStoreReviewsTable extends Migration
             $table->string('mat')->comment('サウナマット');
             $table->string('cleanliness')->comment('清潔度');
             $table->string('age group')->comment('年齢層');
-            $table->string('review')->comment('口コミ');
+            $table->text('review')->comment('口コミ');
             $table->integer('del_flg')->comment('削除フラグ')->default(0);
             $table->string('id')->comment('ユーザーID');
             $table->timestamps();
