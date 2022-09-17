@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -16,41 +16,13 @@
         <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{asset('css/top.css')}}" rel="stylesheet">
-        <script src="{{ asset('/js/top.js') }}"></script>
+        <script src="{{ asset('js/top.js') }}"></script>
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
-            <div class="container px-5">
-                <a class="navbar-brand h2">saunakokokara</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="bi-list"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    @if (Route::has('login'))
-                        <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
-                            @auth
-                            @else
-                                <li class="nav-item"><a class="nav-link me-lg-3" href="{{ route('login') }}">ログイン</a></li>
-                                @if (Route::has('register'))
-                                    <li class="nav-item"><a class="nav-link me-lg-3" href="{{ route('register') }}">新規登録</a></li>
-                                @endif
-                            @endauth
-                        </ul>
-                    @endif
-
-                    {{-- <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#feedbackModal"> --}}
-                        <span class="d-flex align-items-center">
-                            {{-- <i class="bi-chat-text-fill me-2"></i> --}}
-                            <span class="small">ログインしないで使用</span>
-                        </span>
-                    {{-- </button> --}}
-                </div>
-            </div>
-        </nav>
+        @include('layouts.header')
         <!-- Mashead header-->
-        <header class="masthead">
+        <header class="masthead head-color">
             <div class="container px-5">
                 <div class="row gx-5 align-items-center">
                     <div class="col-lg-6">
@@ -58,10 +30,10 @@
                         <div class="mb-5 mb-lg-0 text-center text-lg-start">
                             <h1 class="lh-base mb-3">本当に行きたいサウナ探すならココカラ</h1>
                             <p class="lead fw-normal text-muted mb-5">あなたが本当に満足できるサ活をサポート。初心者から玄人まで幅広く使える<br>情報共有サイトです。</p>
-                            <div class="d-flex flex-column flex-lg-row align-items-center">
+                            {{-- <div class="d-flex flex-column flex-lg-row align-items-center">
                                 <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge" src="assets/img/google-play-badge.svg" alt="..." /></a>
                                 <a href="#!"><img class="app-badge" src="assets/img/app-store-badge.svg" alt="..." /></a>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="col-lg-6">
